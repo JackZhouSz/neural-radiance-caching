@@ -46,7 +46,7 @@ At a high level, this system works by:
 To train both models simultaneously, run
 
 ```
-bash scripts/train.sh --scene <scene_name> --stage material_light_from_scratch_resample --batch_size 1024 --render_chunk_size 1024
+bash scripts/train.sh --scene <scene_name> --stage material_light_from_scratch_resample --batch_size 4096 --render_chunk_size 1024
 ```
 
 Intermediate images will be written, by default, to `~/checkpoints/yobo_results/synthetic/<scene_name>_<stage>`. 
