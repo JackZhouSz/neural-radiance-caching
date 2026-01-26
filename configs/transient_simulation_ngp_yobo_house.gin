@@ -103,16 +103,16 @@ Config.light_transforms = [
     ],
 ]
 
-Config.data_dir = "/scratch/ondemand28/anagh/active-yobo/data/yobo/final_captured/house_11_01"
+Config.data_dir = "./data/house_11_01"
 Config.num_dataset_images = -1
 Config.train_render_every = 300
 Config.dataset_loader = 'fwp_transient_captured'
 
-Config.impulse_response = "./data/yobo/pulse.npy"
+Config.impulse_response = "./data/pulse.npy"
 Config.filter_indirect = False
 Config.tfilter_sigma = 10.21
 
-Config.calib_checkpoint = "./data/yobo/vignette/checkpoint_00000"
+Config.calib_checkpoint = "./data/vignette/checkpoint_00000"
 # Config.calib_checkpoint = ""
 # Config.train_exclude_prefixes = []
 

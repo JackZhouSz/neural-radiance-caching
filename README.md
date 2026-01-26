@@ -15,13 +15,14 @@ This repository contains the code for two papers:
 
 ## Flash Cache: Reducing Bias in Radiance Cache Based Inverse Rendering
 
-### [Website](https://benattal.github.io/flash-cache/) |  [Paper](https://benattal.github.io/flash-cache/flash_cache.pdf)
+### [Website](https://benattal.github.io/flash-cache/) |  [Paper](https://benattal.github.io/flash-cache/flash_cache.pdf) 
 
 The goal of *Flash Cache* is to recover the geometry, materials, and potentially unknown lighting of a scene from a set of conventional images. It works by modeling light transport using *radiance caching*, a technique that can accelerate physically-based rendering. It implements several techniques to improve speed and reduce bias in radiance caching.
 
 ## Neural Inverse Rendering from Propagating Light
 
-### [Website](https://anaghmalik.com/InvProp/) |  [Paper](https://www.arxiv.org/pdf/2506.05347)
+### [Website](https://anaghmalik.com/InvProp/) |  [Paper](https://www.arxiv.org/pdf/2506.05347) | [Dataset](https://www.dropbox.com/scl/fo/w9b3w7ur9pvs784nopdd7/ALkUrCk2UQSafHh_DqTI2iQ?rlkey=a40ivrsl7qg8g3d5bsdguo6rr&st=cvr710ms&dl=0)
+
 
 *Neural Inverse Rendering from Propagating Light*, or *InvProp* is an extension of this idea, and of the paper [*Flying with Photons: Rendering Novel Views of Propagating Light*](https://anaghmalik.com/FlyingWithPhotons/gallery.html), which models time-resolved light transport via *time resolved radiance caching*, and performs inverse rendering from ultrafast videos that capture light in flight.
 
@@ -33,8 +34,46 @@ To install all required dependences, run
 bash install_environment.sh
 ```
 
+
 # Datasets
-TBA
+
+To use the dataset, download it from the Dropbox link below:
+
+* [https://www.dropbox.com/scl/fo/w9b3w7ur9pvs784nopdd7/ALkUrCk2UQSafHh_DqTI2iQ?rlkey=a40ivrsl7qg8g3d5bsdguo6rr&st=cvr710ms&dl=0](https://www.dropbox.com/scl/fo/w9b3w7ur9pvs784nopdd7/ALkUrCk2UQSafHh_DqTI2iQ?rlkey=a40ivrsl7qg8g3d5bsdguo6rr&st=cvr710ms&dl=0)
+
+## What to download and where to put it
+
+From the Dropbox folder, download:
+
+* the `vignette` folder
+* `pulse.npy`
+* **any scene `.zip`** you want to train on
+
+Place these into your repository’s `data/` folder so you end up with something like:
+
+```
+data/
+  vignette/
+  pulse.npy
+  <scene_name>.zip
+```
+
+## Unzip the scene
+
+Unzip the downloaded scene zip into `data/`:
+
+```bash
+unzip downloaded_zip.zip
+```
+
+## Verify config paths
+
+In your config, verify the following entries point to the correct files/directories:
+
+* `Config.calib_checkpoint` → path to your `vignette/` (or the vignette checkpoint within it, depending on your config layout)
+* `Config.impulse_response` → path to `pulse.npy`
+* `Config.data_dir` → path to the unzipped scene directory
+
 
 # Quick Start
 
